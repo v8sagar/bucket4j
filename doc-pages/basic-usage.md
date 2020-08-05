@@ -79,8 +79,8 @@ public class ThrottlingFilter implements javax.servlet.Filter {
         String appKey = SecurityUtils.getThirdPartyAppKey();
         Bucket bucket = (Bucket) session.getAttribute("throttler-" + appKey);
         if (bucket == null) {
-            Bucket bucket = createNewBucket();
-            session.setAttribute("throttler-" + appKey, bucket);
+            Bucket bucket2 = createNewBucket();
+            session.setAttribute("throttler-" + appKey, bucket2);
         }
 
         // tryConsume returns false immediately if no tokens available with the bucket
